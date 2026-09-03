@@ -9,7 +9,7 @@
 [cista]
   url=git@github.com:felixguendling/cista.git
   branch=master
-  commit=5fd98bf850998a876f72dcc122c97fb3aef14204
+  commit=98ec4dd798a0ea05526585623d9f0e3968930bed
 [ctx]
   url=git@github.com:motis-project/ctx.git
   branch=master
@@ -35,13 +35,13 @@
   branch=master
   commit=d1d445326a5d3ec77e14394fee60962d08894ba0
 [nigiri]
-  url=git@github.com:mority/nigiri.git
+  url=git@github.com:orhazal/nigiri.git
   branch=amd-gpu
-  commit=767d4abaa540f43283b8d55c6120e2131349f16e
+  commit=11027aa26ebcc607d996a834688571ec8f309a8a
 [openapi-cpp]
   url=git@github.com:triptix-tech/openapi-cpp.git
   branch=master
-  commit=22492d0eb82ea257e666c29e66c402a45d5d7e25
+  commit=3c162a21ccb37f167574750a6be7d7c339c93afe
 [opentelemetry-cpp]
   url=git@github.com:motis-project/opentelemetry-cpp.git
   branch=main
