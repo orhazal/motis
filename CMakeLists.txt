@@ -34,12 +34,10 @@ endif()
 # nigiri's HIP back end (NIGIRI_HIP) enables the HIP language inside its own
 # subdirectory, which leaves the top-level scope without HIP link rules - the
 # motis executable then gets an empty link command. Enable it here so the link
-# rules exist where the executable is defined. CMAKE_HIP_ARCHITECTURES must be
-# set before any target is created, hence before pkg.cmake pulls nigiri in.
+# rules exist where the executable is defined. Like CMAKE_CUDA_ARCHITECTURES
+# for the CUDA build, CMAKE_HIP_ARCHITECTURES has to be given explicitly
+# (nigiri refuses to configure without it), e.g. -DCMAKE_HIP_ARCHITECTURES=gfx1100
 if (NIGIRI_HIP)
-    if (NOT DEFINED CMAKE_HIP_ARCHITECTURES AND NIGIRI_HIP_ARCH)
-        set(CMAKE_HIP_ARCHITECTURES ${NIGIRI_HIP_ARCH})
-    endif()
     enable_language(HIP)
 endif()
 
@@ -210,16 +208,9 @@ endif()
 # HIP compiler understands. CMake otherwise picks CXX here and hands that flag
 # to the C++ driver, so the link fails; force the HIP driver to do the linking.
 if (NIGIRI_HIP)
-    # nigiri sets CMAKE_HIP_ARCHITECTURES in its own directory scope, so it is
-    # not visible here and the target would be left with an empty one
-    if (NIGIRI_HIP_ARCH)
-        set(motis-hip-arch ${NIGIRI_HIP_ARCH})
-    else()
-        set(motis-hip-arch ${CMAKE_HIP_ARCHITECTURES})
-    endif()
     set_target_properties(motis PROPERTIES
             LINKER_LANGUAGE HIP
-            HIP_ARCHITECTURES "${motis-hip-arch}")
+            HIP_ARCHITECTURES "${CMAKE_HIP_ARCHITECTURES}")
 endif()
 
 # --- TEST ---

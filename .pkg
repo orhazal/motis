@@ -37,7 +37,7 @@
 [nigiri]
   url=git@github.com:orhazal/nigiri.git
   branch=amd-gpu
-  commit=11027aa26ebcc607d996a834688571ec8f309a8a
+  commit=6e9f78017bdfe962bfd69d053b0f1285303c566a
 [openapi-cpp]
   url=git@github.com:triptix-tech/openapi-cpp.git
   branch=master

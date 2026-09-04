@@ -168,6 +168,17 @@
       }
     },
     {
+      "name": "hip",
+      "displayName": "Linux HIP RelWithDebInfo (AMD ROCm)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/hip",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "NIGIRI_HIP": "ON",
+        "CMAKE_HIP_COMPILER": "/opt/rocm/llvm/bin/clang++"
+      }
+    },
+    {
       "name": "clang-tidy",
       "displayName": "Clang Tidy",
       "generator": "Ninja",
@@ -217,6 +228,10 @@
       "environment": {
         "ASAN_OPTIONS": "detect_leaks=0:protect_shadow_gap=0"
       }
+    },
+    {
+      "name": "hip",
+      "configurePreset": "hip"
     },
     {
       "name": "clang-tidy",
